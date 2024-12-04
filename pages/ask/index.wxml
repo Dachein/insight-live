@@ -1,0 +1,6 @@
+<view class="container {{theme}}">
+  <view class="building">
+    <text class="building-icon">💬</text>
+    <text class="building-text">{{t('building')}}</text>
+  </view>
+</view> 

@@ -1,0 +1,104 @@
+<view class="container {{theme}}">
+  <view class="filter-bar" catch:tap="preventBubble">
+    <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
+      <view class="filter-items">
+        <view class="filter-item {{!currentType && selectedTags.length === 0 ? 'active' : ''}}" 
+              bindtap="clearAllFilters" 
+              data-type="">全部</view>
+        <block wx:for="{{selectedTags}}" wx:key="*this">
+          <view class="filter-item filter-tag active" 
+                bindtap="toggleTag" 
+                data-tag="{{item}}">
+            #{{item}}
+            <text class="filter-tag-close">×</text>
+          </view>
+        </block>
+        <view class="filter-item {{currentType === 'Trading Desk' ? 'active' : ''}}" 
+              bindtap="switchType" 
+              data-type="Trading Desk">Trading Desk</view>
+        <view class="filter-item {{currentType === '研报摘要' ? 'active' : ''}}" 
+              bindtap="switchType" 
+              data-type="研报摘要">研报摘要</view>
+        <view class="filter-item {{currentType === 'Trading Idea' ? 'active' : ''}}" 
+              bindtap="switchType" 
+              data-type="Trading Idea">Trading Idea</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="posts-list">
+    <block wx:for="{{posts}}" wx:key="id">
+      <view class="post-item" 
+            hover-class="post-item-hover" 
+            bindtap="handleSingleTap" 
+            data-id="{{item.id}}"
+            bindlongtap="handleLongPress"
+            catch:touchstart="handleTouchStart"
+            catch:touchend="handleTouchEnd">
+        <view class="like-animation {{item.showLikeAnimation ? 'show' : ''}}" 
+              wx:if="{{item.showLikeAnimation}}">
+          ❤️
+        </view>
+        
+        <view class="post-header" hover-class="header-hover">
+          <view class="header-left">
+            <image class="avatar" src="{{item.authors.avatar}}" mode="aspectFill"></image>
+            <view class="author-info">
+              <text class="author-name">{{item.authors.name}}</text>
+              <view class="post-meta">
+                <text class="post-time">{{item.relative_time}}</text>
+                <text class="post-likes" wx:if="{{item.likes_count > 0}}">｜ {{item.likes_count}} 赞</text>
+              </view>
+            </view>
+          </view>
+          <view class="type-badge {{item.type_text === 'Trading Desk' ? 'type-trading' : item.type_text === '研报摘要' ? 'type-research' : 'type-default'}}">
+            {{item.type_text}}
+          </view>
+        </view>
+        
+        <view class="post-content">
+          <text class="title" hover-class="title-hover">{{item.title}}</text>
+          
+          <view class="images-container" wx:if="{{item.images && item.images.length > 0}}" catch:tap="preventBubble">
+            <swiper class="images-swiper" 
+                    bindchange="handleSwiperChange" 
+                    data-post-id="{{item.id}}"
+                    current="{{item.currentImageIndex || 0}}">
+              <swiper-item wx:for="{{item.images}}" 
+                           wx:key="*this" 
+                           wx:for-item="imageUrl">
+                <view class="image-wrapper" 
+                      catch:tap="handleImagePreview" 
+                      data-url="{{imageUrl}}">
+                  <image class="post-image" 
+                         src="{{imageUrl}}" 
+                         mode="aspectFill"/>
+                </view>
+              </swiper-item>
+            </swiper>
+            <view class="image-counter" wx:if="{{item.images.length > 1}}">
+              {{(item.currentImageIndex || 0) + 1}}/{{item.images.length}}
+            </view>
+          </view>
+
+          <view class="markdown-content">
+            <towxml nodes="{{item.parsedContent}}" />
+          </view>
+        </view>
+        
+        <view class="post-footer" catch:tap="preventBubble">
+          <view class="tags">
+            <block wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">
+              <view class="tag-wrapper" catch:tap="handleTagClick" data-tag="{{tag}}">
+                <text class="tag {{selectedTags.includes(tag) ? 'tag-selected' : ''}}">
+                  #{{tag}}
+                </text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+</view> 

@@ -1,0 +1,24 @@
+.container {
+  min-height: 100vh;
+  padding: 32rpx;
+  background-color: var(--backgroundColor);
+}
+
+.building {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.building-icon {
+  font-size: 80rpx;
+  margin-bottom: 32rpx;
+  opacity: 0.6;
+}
+
+.building-text {
+  font-size: 28rpx;
+  color: var(--secondaryTextColor);
+} 

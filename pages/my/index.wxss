@@ -1,0 +1,169 @@
+.container {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  padding: 32rpx 24rpx;
+}
+
+.user-info {
+  padding: 32rpx 24rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 48rpx;
+  border-radius: 24rpx;
+  transition: all 0.3s ease;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 24rpx;
+  transition: all 0.3s ease;
+}
+
+.username {
+  font-size: 36rpx;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.menu-group {
+  border-radius: 16rpx;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 24rpx;
+  height: 88rpx;
+  transition: all 0.3s ease;
+}
+
+.settings-label {
+  font-size: 32rpx;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.current-language {
+  font-size: 32rpx;
+  transition: color 0.3s ease;
+}
+
+.settings-arrow {
+  font-size: 32rpx;
+  transition: color 0.3s ease;
+}
+
+/* Switch 样式覆盖 */
+switch {
+  transform: scale(0.9);
+}
+
+switch.wx-switch-input-checked {
+  border-color: #9333EA !important;
+  background-color: #9333EA !important;
+}
+
+/* 深色主题 */
+.container.dark {
+  background-color: #1C1C1E;
+}
+
+.container.dark .user-info {
+  background: #2C2C2E;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container.dark .avatar {
+  background: #3A3A3C;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container.dark .username {
+  color: #FFFFFF;
+}
+
+.container.dark .menu-group {
+  background: #2C2C2E;
+}
+
+.container.dark .settings-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container.dark .settings-item:last-child {
+  border-bottom: none;
+}
+
+.container.dark .settings-label {
+  color: #FFFFFF;
+}
+
+.container.dark .current-language {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.container.dark .settings-arrow {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* 浅色主题 */
+.container.light {
+  background-color: #F2F2F7;
+}
+
+.container.light .user-info {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.container.light .avatar {
+  background: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container.light .username {
+  color: #000000;
+}
+
+.container.light .menu-group {
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.container.light .settings-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container.light .settings-item:last-child {
+  border-bottom: none;
+}
+
+.container.light .settings-label {
+  color: #000000;
+}
+
+.container.light .current-language {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.container.light .settings-arrow {
+  color: rgba(0, 0, 0, 0.3);
+} 

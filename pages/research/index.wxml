@@ -1,0 +1,7 @@
+<view class="container {{theme}}">
+  <view class="building">
+    <text class="building-emoji">{{pageType === 'research' ? '📚' : '🤖'}}</text>
+    <text class="building-text">{{t('building')}}</text>
+    <text class="page-title">{{t(pageType === 'research' ? 'researchTitle' : 'askTitle')}}</text>
+  </view>
+</view> 

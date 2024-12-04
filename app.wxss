@@ -1,0 +1,24 @@
+page {
+  --dark-background: #1C1C1E;
+  --dark-card: #2C2C2E;
+  --dark-border: rgba(255, 255, 255, 0.1);
+  --dark-text: #FFFFFF;
+  --dark-text-secondary: rgba(255, 255, 255, 0.6);
+  
+  --light-background: #F2F2F7;
+  --light-card: #FFFFFF;
+  --light-border: rgba(0, 0, 0, 0.1);
+  --light-text: #000000;
+  --light-text-secondary: rgba(0, 0, 0, 0.6);
+  
+  --primary-color: #38BDF8;
+  --primary-purple: #9333EA;
+  
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+/* 全局过渡动画 */
+.container {
+  transition: all 0.3s ease;
+} 

@@ -1,0 +1,35 @@
+<view class="preview-container">
+  <swiper class="preview-swiper" 
+          current="{{currentIndex}}"
+          bindchange="handleSwiperChange">
+    <swiper-item wx:for="{{images}}" wx:key="*this">
+      <movable-area class="movable-area">
+        <movable-view class="movable-view"
+                     direction="all"
+                     scale="true"
+                     scale-min="1"
+                     scale-max="4"
+                     scale-value="{{scale}}"
+                     bindscale="handleScale"
+                     out-of-bounds="true"
+                     damping="50"
+                     friction="2">
+          <image class="preview-image"
+                 src="{{item}}"
+                 mode="aspectFit"
+                 bindtap="handleImageTap"
+                 bindload="handleImageLoad"
+                 data-index="{{index}}"/>
+        </movable-view>
+      </movable-area>
+    </swiper-item>
+  </swiper>
+
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar {{navBarVisible ? '' : 'hidden'}}">
+    <view class="nav-back" bindtap="handleBack">
+      <text class="back-icon">×</text>
+    </view>
+    <view class="nav-counter">{{currentIndex + 1}}/{{images.length}}</view>
+  </view>
+</view> 

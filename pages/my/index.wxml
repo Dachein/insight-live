@@ -1,0 +1,41 @@
+<view class="container {{theme}}">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image class="avatar" 
+           src="{{userInfo.avatar || '/static/images/avatar-default.jpg'}}" 
+           mode="aspectFill"/>
+    <text class="username">{{userInfo.name}}</text>
+  </view>
+
+  <!-- 设置菜单组 -->
+  <view class="settings-list">
+    <!-- 发布帖子 -->
+    <view class="menu-group">
+      <view class="settings-item" bindtap="handleNewPost">
+        <text class="settings-label">{{t('menuNewPostTitle')}}</text>
+        <text class="settings-arrow">></text>
+      </view>
+    </view>
+
+    <!-- 外观设置 -->
+    <view class="menu-group">
+      <view class="settings-item">
+        <text class="settings-label">{{t('menuAppearanceTitle')}}</text>
+        <switch checked="{{isDarkMode}}" 
+                bindchange="handleThemeChange" 
+                color="#9333EA"/>
+      </view>
+    </view>
+
+    <!-- 语言设置 -->
+    <view class="menu-group">
+      <view class="settings-item" bindtap="showLanguageSelector">
+        <text class="settings-label">{{t('menuLanguageTitle')}}</text>
+        <view class="menu-right">
+          <text class="current-language">{{currentLanguageName}}</text>
+          <text class="settings-arrow">></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 
